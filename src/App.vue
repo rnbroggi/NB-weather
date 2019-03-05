@@ -21,7 +21,7 @@
 <script>
     import Countries from '@/components/Countries'
     import myHeader from '@/components/Header'
-    import Weather from '@/components/weather'
+    import Weather from '@/components/Weather'
 
     export default {
         /* eslint-disable */

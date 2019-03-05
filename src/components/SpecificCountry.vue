@@ -18,7 +18,9 @@
                 <th scope="col">Country</th>
                 <th scope="col">Capital</th>
                 <th scope="col">Region</th>
+                <th scope="col">Subregion</th>
                 <th scope="col">Population</th>
+                <th scope="col">Calling code</th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +28,9 @@
                 <td>{{country.name}}</td>
                 <td>{{country.capital}}</td>
                 <td>{{country.region}}</td>
+                <td>{{country.subregion}}</td>
                 <td>{{country.population}}</td>
+                <td>{{country.callingCodes}}</td>
             </tr>
             </tbody>
         </table>
@@ -59,7 +63,9 @@
                                 name: data[key].name,
                                 capital: data[key].capital,
                                 region: data[key].region,
-                                population: data[key].population
+                                population: data[key].population,
+                                subregion: data[key].subregion,
+                                callingCodes: data[key].callingCodes.join(', ')
                             };
                             resultArray.push(country)
                         }
