@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <my-header
+                @changeToCountries="selectedMainComponent = $event"
+                @changeToHome="selectedMainComponent = $event"
+                @changeToWeather="selectedMainComponent = $event"
+        >
+
+        </my-header>
+        <div class="container">
+            <div class="jumbotron" v-if="selectedMainComponent === ''">
+                <h1 class="mb-5">Welcome to NB Weather!</h1>
+                <h2 class="mb-4">Click if you want to look for <button class="btn btn-success" @click="selectedMainComponent = 'countries'">Countries</button></h2>
+                <h2>Click if you want to look for <button class="btn btn-info" @click="selectedMainComponent = 'weather'">Weather</button></h2>
+            </div>
+            <component :is="selectedMainComponent"></component>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import Countries from '@/components/Countries'
+    import myHeader from '@/components/Header'
+    import Weather from '@/components/weather'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        /* eslint-disable */
+
+        name: 'app',
+        components: {
+            myHeader,
+            'countries': Countries,
+            'weather': Weather
+        },
+        data (){
+            return {
+                selectedMainComponent: ''
+            }
+        }
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    body {
+        background-color: #efefef;
+    }
 </style>
