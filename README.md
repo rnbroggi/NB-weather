@@ -1,4 +1,4 @@
-# test-api
+# NB Weather
 
 ## Project setup
 ```
